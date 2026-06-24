@@ -729,6 +729,49 @@
     .timeline-item b { display: block; font-size: 12px; }
     .timeline-item small { color: var(--muted); font-size: 10px; }
 
+    .priority-list {
+      display: grid;
+      gap: 9px;
+      margin: 14px 0;
+    }
+
+    .priority-item {
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr);
+      gap: 10px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+    }
+
+    .priority-rank {
+      display: grid;
+      place-items: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      color: #fff;
+      background: var(--blue);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .priority-item:first-child {
+      border-color: #f2bd9d;
+      background: var(--orange-soft);
+    }
+
+    .priority-item:first-child .priority-rank { background: var(--orange); }
+    .priority-item b { display: block; color: var(--navy); font-size: 12px; }
+    .priority-item small { display: block; margin-top: 3px; color: var(--muted); font-size: 10px; }
+    .priority-reason {
+      margin-top: 6px;
+      color: #52616d;
+      font-size: 10px;
+      line-height: 1.4;
+    }
+
     .event-log {
       max-height: 510px;
       overflow: auto;
@@ -823,20 +866,6 @@
       border: 1px solid var(--line);
       border-radius: 19px;
       background: #fff;
-      cursor: pointer;
-      transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .hook > div:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(23, 50, 77, 0.08);
-      border-color: var(--orange);
-    }
-
-    .hook > div.active {
-      border-color: var(--orange);
-      background: var(--orange-soft);
-      box-shadow: inset 0 0 0 2px var(--orange), 0 10px 20px rgba(23, 50, 77, 0.08);
     }
 
     .hook > div:not(:last-child)::after {
@@ -861,10 +890,6 @@
       font-size: 11px;
       font-weight: 900;
       text-transform: uppercase;
-    }
-
-    .hook-details-step {
-      animation: enter 0.25s ease-out;
     }
 
     .acceptance {
@@ -1159,56 +1184,6 @@
             <span class="tag orange">Weekly, seasonally variable</span>
           </div>
         </div>
-
-        <div class="section-head" style="margin-top:28px">
-          <div class="copy">
-            <h3>Bảng Customer Retention Canvas chi tiết</h3>
-            <p>Bản tổng hợp có cấu trúc đầy đủ của Bài 1 theo mẫu canvas bắt buộc trong tài liệu yêu cầu.</p>
-          </div>
-        </div>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th style="width:20%">Thành phần</th>
-                <th style="width:30%">Câu hỏi</th>
-                <th style="width:50%">Câu trả lời của nhóm (StudyMate AI)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><b>The Problem</b></td>
-                <td>Vấn đề được định nghĩa như thế nào bằng chính lời của người dùng?</td>
-                <td>“Thông tin bài tập nằm ở quá nhiều nơi. Tôi mất thời gian kiểm tra từng kênh mà vẫn sợ bỏ lỡ deadline hoặc học sai việc ưu tiên.”</td>
-              </tr>
-              <tr>
-                <td><b>The Persona</b></td>
-                <td>Ai là người đang có vấn đề đó? (Mô tả vai trò, hoàn cảnh, mục tiêu, kinh nghiệm, điều kiện hành vi)</td>
-                <td><b>Minh, sinh viên năm 1–2</b>, học 5–7 môn, nhận thông báo qua email, LMS, nhóm lớp và lịch cá nhân. Mục tiêu: biết chính xác việc cần làm tiếp theo; Kinh nghiệm tự quản lý trung bình; Hành vi thay đổi mạnh ở tuần thi hoặc tuần có bài nhóm.</td>
-              </tr>
-              <tr>
-                <td><b>Anti-persona</b></td>
-                <td>Ai không có vấn đề này hoặc không phải đối tượng của use case?</td>
-                <td>Sinh viên chỉ học một khóa ngắn hạn, mọi deadline đã tập trung trên một LMS duy nhất và có quy trình quản lý ổn định. Tránh trộn dữ liệu của giảng viên, quản trị viên để giữ cohort chính xác.</td>
-              </tr>
-              <tr>
-                <td><b>The Why</b></td>
-                <td>Lý do hoặc động lực cốt lõi nào khiến persona muốn giải quyết vấn đề?</td>
-                <td>Giảm tải trí nhớ và cảm giác lo lắng/bất an; dành năng lượng cho việc học thay vì dò tìm, sao chép và kiểm tra lại thông tin. Outcome: kế hoạch học tập đáng tin cậy và hoàn thành bài tập đúng hạn.</td>
-              </tr>
-              <tr>
-                <td><b>The Alternative</b></td>
-                <td>Hiện tại người dùng đang làm gì để giải quyết vấn đề mà chưa cần sản phẩm của nhóm?</td>
-                <td>Mở lại email/LMS nhiều lần mỗi ngày; chép tay vào Notes, Google Calendar; hỏi bạn cùng lớp; ghim tin nhắn rồi vẫn quên xử lý.</td>
-              </tr>
-              <tr>
-                <td><b>The Frequency</b></td>
-                <td>Người dùng trải nghiệm vấn đề này với tần suất như thế nào?</td>
-                <td><b>Weekly là cadence chính</b> (3–5 deadline mới/tuần trong học kỳ); kiểm tra "việc tiếp theo" gần như hàng ngày; có tính mùa vụ (tăng ở tuần thi, giảm ở kỳ nghỉ).</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
       </section>
 
       <section class="page" id="page-02" data-phase="day20">
@@ -1485,7 +1460,43 @@
                     <h4>Evidence of value</h4>
                     <p class="small muted">StudyMate đã gom nguồn, kiểm tra deadline và đặt task trước “Đăng ký CLB” vì hạn gần và ảnh hưởng điểm số cao hơn.</p>
                   </div>
-                  <button class="btn btn-secondary btn-block" type="button" onclick="logNextStep()">Xem 3 việc ưu tiên tuần này</button>
+                  <button class="btn btn-secondary btn-block" type="button" onclick="showPriorityList()">Xem 3 việc ưu tiên tuần này</button>
+                </div>
+
+                <div class="prototype-screen" id="proto-priorities">
+                  <span class="tag">Kế hoạch tuần · đã ưu tiên</span>
+                  <h3 style="margin-top:13px">3 việc nên xử lý trước</h3>
+                  <p class="micro">Thứ tự dựa trên deadline, ảnh hưởng điểm số và thời gian cần hoàn thành. Bạn vẫn có thể thay đổi.</p>
+                  <div class="priority-list">
+                    <div class="priority-item">
+                      <span class="priority-rank">1</span>
+                      <div>
+                        <b id="priorityTaskName">Nộp báo cáo Chương 3</b>
+                        <small id="priorityTaskMeta">Giải tích 2 · hạn 25/06, 23:59</small>
+                        <div class="priority-reason">Hạn gần, ảnh hưởng điểm số cao và cần một phiên tập trung tối nay.</div>
+                      </div>
+                    </div>
+                    <div class="priority-item">
+                      <span class="priority-rank">2</span>
+                      <div>
+                        <b>Hoàn thiện slide thuyết trình nhóm</b>
+                        <small>Marketing căn bản · hạn 27/06, 18:00</small>
+                        <div class="priority-reason">Cần phối hợp với nhóm; trì hoãn có thể ảnh hưởng tiến độ của người khác.</div>
+                      </div>
+                    </div>
+                    <div class="priority-item">
+                      <span class="priority-rank">3</span>
+                      <div>
+                        <b>Đăng ký CLB học thuật</b>
+                        <small>Hoạt động ngoại khóa · hạn 28/06, 17:00</small>
+                        <div class="priority-reason">Có hạn cứng nhưng thời gian xử lý ngắn và không ảnh hưởng điểm số.</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card tint-blue" style="padding:12px">
+                    <p class="small" style="margin:0"><b>Vì sao task đầu đứng số 1?</b><br><span class="muted">Deadline gần nhất và ảnh hưởng điểm số cao hơn hai việc còn lại.</span></p>
+                  </div>
+                  <button class="btn btn-secondary btn-block" type="button" onclick="backToValue()">← Quay lại kết quả</button>
                 </div>
               </div>
             </div>
@@ -1755,100 +1766,52 @@
           </table>
         </div>
 
-        <div class="hook" id="hook-loop">
-          <div class="active" onclick="selectHookStep(1)">
+        <div class="hook">
+          <div>
             <span class="hook-index">01 · Trigger</span>
             <h3>Không chắc / sợ bỏ sót</h3>
-            <p class="small muted"><b>Internal:</b> lo quên deadline, lo phân bổ thời gian sai.</p>
+            <p class="small muted"><b>Internal:</b> lo quên deadline, không biết ưu tiên.</p>
             <p class="small muted"><b>External:</b> digest Chủ nhật hoặc alert khi deadline thay đổi.</p>
           </div>
-          <div onclick="selectHookStep(2)">
+          <div>
             <span class="hook-index">02 · Action</span>
-            <h3>Mở & xác nhận top task</h3>
-            <p class="small muted">Review evidence và click "Xác nhận & thêm vào kế hoạch" một chạm.</p>
+            <h3>Mở và xác nhận top task</h3>
+            <p class="small muted">Action đơn giản nhất: review evidence rồi bấm “Xác nhận & thêm vào kế hoạch”.</p>
             <span class="tag green">2 thao tác chính</span>
           </div>
-          <div onclick="selectHookStep(3)">
+          <div>
             <span class="hook-index">03 · Variable Reward</span>
             <h3>Rõ việc tiếp theo</h3>
-            <p class="small muted"><b>The Self:</b> an tâm kiểm soát bài học.</p>
-            <p class="small muted"><b>The Hunt:</b> phát hiện deadline ẩn sâu trong email.</p>
+            <p class="small muted"><b>The Self:</b> cảm giác tiến bộ và kiểm soát.</p>
+            <p class="small muted"><b>The Hunt:</b> phát hiện task/ưu tiên mới hữu ích; không gắn gamification giả.</p>
           </div>
-          <div onclick="selectHookStep(4)">
+          <div>
             <span class="hook-index">04 · Investment</span>
-            <h3>Sửa đổi, lưu lịch rảnh</h3>
-            <p class="small muted">Lịch rảnh cá nhân, tùy chỉnh môn học giúp AI đề xuất chính xác hơn lần sau.</p>
+            <h3>Sửa, xác nhận, đặt preference</h3>
+            <p class="small muted">Dữ liệu correction, lịch rảnh và cách ưu tiên làm kết quả lần sau chính xác hơn, đồng thời “load” weekly trigger tiếp theo.</p>
           </div>
         </div>
 
-        <div id="hook-details-container">
-          <!-- Step 1 Details -->
-          <div class="grid grid-2 hook-details-step" id="hook-step-1" style="margin-top:18px">
-            <div class="card">
-              <h3>5 Whys → Tìm kiếm Trigger nội tâm (Internal Trigger)</h3>
-              <ol class="small muted" style="line-height: 1.6; margin-left: 16px;">
-                <li><b>Q1: Vì sao mở app?</b> -> Muốn biết việc học tập nào cần làm tiếp theo.</li>
-                <li><b>Q2: Vì sao chưa biết?</b> -> Vì thông tin bài tập nằm rải rác nhiều nơi (email, LMS, nhóm chat).</li>
-                <li><b>Q3: Vì sao điều đó gây khó chịu?</b> -> Sợ bỏ sót deadline hoặc học sai việc ưu tiên trong tuần.</li>
-                <li><b>Q4: Vì sao sợ bỏ sót deadline?</b> -> Ảnh hưởng trực tiếp tới điểm số học tập và cam kết với nhóm.</li>
-                <li><b>Q5: Vì sao cần kiểm soát điều này?</b> -> Muốn dành trọn tâm trí cho việc học thay vì lo lắng ghi nhớ lịch.</li>
-              </ol>
-              <p class="small"><b>Internal Trigger chính:</b> Cảm giác lo âu, không chắc chắn về mức độ ưu tiên của công việc học tập.</p>
-            </div>
-            <div class="card tint-blue">
-              <h3>External Trigger (Tác nhân kích thích bên ngoài)</h3>
-              <ul class="clean small" style="line-height: 1.6;">
-                <li><b>Weekly Digest:</b> Notification/Email tự động gửi lúc 19:00 tối Chủ Nhật hàng tuần tổng hợp các deadline của tuần tới.</li>
-                <li><b>Real-time Alert:</b> Cảnh báo tức thì khi hệ thống phát hiện có sự thay đổi quan trọng về lịch thi hoặc deadline mới cập nhật.</li>
-              </ul>
-            </div>
+        <div class="grid grid-2" style="margin-top:18px">
+          <div class="card">
+            <h3>5 Whys → internal trigger</h3>
+            <ol class="small muted">
+              <li>Vì sao mở app? Muốn biết việc nào cần làm.</li>
+              <li>Vì sao chưa biết? Thông tin nằm ở nhiều nơi.</li>
+              <li>Vì sao điều đó khó chịu? Sợ bỏ sót hoặc ưu tiên sai.</li>
+              <li>Vì sao sợ bỏ sót? Deadline ảnh hưởng điểm và cam kết nhóm.</li>
+              <li>Vì sao cần kiểm soát? Muốn dành tâm trí cho học thay vì ghi nhớ.</li>
+            </ol>
+            <p class="small"><b>Ba trigger có thể có:</b> lo bỏ sót, không chắc ưu tiên, muốn cảm giác kiểm soát. Chọn “không chắc ưu tiên” vì xảy ra thường xuyên và gần action nhất.</p>
           </div>
-
-          <!-- Step 2 Details -->
-          <div class="grid grid-2 hook-details-step hidden" id="hook-step-2" style="margin-top:18px">
-            <div class="card tint-yellow">
-              <h3>Ability: Rào cản và Thử nghiệm tối ưu hóa</h3>
-              <ul class="clean small" style="line-height: 1.6;">
-                <li><b>Time:</b> Xem nguồn quá lâu -> *Thử nghiệm:* Prefill toàn bộ thông tin (Tên task, môn học, ngày hạn) trích từ nguồn.</li>
-                <li><b>Brain cycles:</b> Không tin tưởng hoặc không hiểu vì sao AI chọn -> *Thử nghiệm:* Hiển thị trực tiếp đoạn trích email gốc (evidence) làm bằng chứng kiểm chứng.</li>
-                <li><b>Non-routine:</b> Chưa quen lập kế hoạch -> *Thử nghiệm:* CTA từ digest mở thẳng vào màn Review nhanh thay vì đưa vào dashboard chính.</li>
-              </ul>
-              <p class="small muted"><b>Số bước từ Trigger đến Reward:</b> 3 bước (Mở thông báo -> Đọc evidence -> Xác nhận).</p>
-            </div>
-            <div class="card">
-              <h3>Friction Reduction (Giảm ma sát nhận thức)</h3>
-              <p class="small">StudyMate không yêu cầu tạo tài khoản trong bước thử nghiệm ban đầu (Sample Mode), cho phép tạm hoãn (Delay) các thiết lập cài đặt chi tiết tới sau khi hoàn thành verified planning cycle đầu tiên để tăng Ability.</p>
-            </div>
-          </div>
-
-          <!-- Step 3 Details -->
-          <div class="grid grid-2 hook-details-step hidden" id="hook-step-3" style="margin-top:18px">
-            <div class="card tint-blue">
-              <h3>Variable Reward (Phần thưởng linh hoạt)</h3>
-              <ul class="clean small" style="line-height: 1.6;">
-                <li><b>The Self (Cảm giác làm chủ):</b> Sự an tâm, giải tỏa lo lắng khi thấy danh sách bài tập đã được sắp xếp khoa học và có kế hoạch học tập rõ ràng.</li>
-                <li><b>The Hunt (Phát hiện thông tin có giá trị):</b> Bất ngờ phát hiện ra một deadline ẩn sâu trong email của giảng viên mà bình thường rất dễ bỏ qua.</li>
-              </ul>
-            </div>
-            <div class="card dark">
-              <h3>Nguyên tắc không Gamification khiên cưỡng</h3>
-              <p class="small">Sản phẩm không sử dụng streak ảo, không tặng huy hiệu hay điểm thưởng ảo (points/badges) vì việc này không giải quyết trực tiếp painpoint của học tập và dễ gây mệt mỏi nhận thức (cognitive fatigue) cho sinh viên.</p>
-            </div>
-          </div>
-
-          <!-- Step 4 Details -->
-          <div class="grid grid-2 hook-details-step hidden" id="hook-step-4" style="margin-top:18px">
-            <div class="card">
-              <h3>Investment (Sự đầu tư của người dùng)</h3>
-              <ul class="clean small" style="line-height: 1.6;">
-                <li><b>Data & Correction:</b> Lịch rảnh cá nhân, tùy chọn mức ưu tiên của từng môn và các lượt chỉnh sửa khi AI gán nhầm môn học.</li>
-                <li><b>Value storage:</b> Dữ liệu này được lưu trữ để làm tăng độ chính xác của các đề xuất AI trong những lần sau, khiến người dùng khó rời bỏ sản phẩm hơn.</li>
-              </ul>
-            </div>
-            <div class="card tint-green">
-              <h3>Kích hoạt Trigger tiếp theo (Load Next Trigger)</h3>
-              <p class="small">Thông qua việc xác nhận task và lưu trữ lịch rảnh, hệ thống có đủ cơ sở để tự động thiết lập và gửi **Weekly Digest tiếp theo** một cách chính xác hơn, tiếp nối vòng lặp thói quen lập kế hoạch định kỳ.</p>
-            </div>
+          <div class="card tint-yellow">
+            <h3>Ability: rào cản và thử nghiệm</h3>
+            <ul class="clean small">
+              <li><b>Time:</b> review quá lâu → thử nghiệm one-tap confirm với dữ liệu đã prefill.</li>
+              <li><b>Brain cycles:</b> không hiểu AI suy luận → hiển thị evidence và confidence tại chỗ.</li>
+              <li><b>Non-routine:</b> chưa quen planning → CTA từ weekly digest mở thẳng top task.</li>
+            </ul>
+            <p class="small muted">Số bước từ trigger tới reward mục tiêu: mở digest → review → confirm → thấy plan, khoảng 3 bước.</p>
           </div>
         </div>
 
@@ -2006,182 +1969,6 @@
           Prototype này phân biệt rõ phần baseline Ngày 18 (tab 00 và recovery S6) với phần bổ sung Day 20 (tab 01–12). Toàn bộ nội dung chạy trong một file HTML, không cần API hoặc dữ liệu email thật.
         </div>
       </section>
-
-      <section class="page" id="page-13" data-phase="day20">
-        <div class="section-head">
-          <div class="copy">
-            <span class="eyebrow">13 · Checklist trước khi nộp bài</span>
-            <h2>Tự rà soát toàn bộ các tiêu chí đánh giá của bài lab</h2>
-            <p>Tích chọn các hạng mục dưới đây để kiểm tra mức độ hoàn thành và tự động tính điểm tiến độ đạt chuẩn.</p>
-          </div>
-        </div>
-
-        <div class="card dark" style="margin-bottom: 24px; text-align: center; padding: 24px;">
-          <h3 style="margin: 0; color: #fff; font-size: 20px;">Tiến độ tự đánh giá bài Lab Day 20</h3>
-          <div class="progress-line" style="height: 12px; margin: 16px auto 8px; max-width: 600px; background: rgba(255,255,255,0.15);">
-            <div id="checklistProgress" style="width: 0%; background: linear-gradient(90deg, #51e292, #27855b);"></div>
-          </div>
-          <span style="font-size: 14px; font-weight: bold;" id="checklistRatio">Đã hoàn thành: 0% (0 / 30 tiêu chí đạt)</span>
-        </div>
-
-        <div class="grid grid-2">
-          <div class="card">
-            <h3 style="border-bottom: 2px solid var(--line); padding-bottom: 8px; margin-bottom: 12px; color: var(--navy);">Use case & Natural behavior</h3>
-            <div style="display: flex; flex-direction: column; gap: 10px;">
-              <label style="display: flex; align-items: start; gap: 8px; font-size: 12.5px; cursor: pointer;">
-                <input type="checkbox" class="checklist-item" onchange="updateChecklistProgress()" style="width: auto; margin-top: 3px;" checked>
-                <span>Chỉ tập trung phân tích sâu vào **một use case chính** của sản phẩm.</span>
-              </label>
-              <label style="display: flex; align-items: start; gap: 8px; font-size: 12.5px; cursor: pointer;">
-                <input type="checkbox" class="checklist-item" onchange="updateChecklistProgress()" style="width: auto; margin-top: 3px;" checked>
-                <span>Có **The Problem** phát biểu bằng chính lời của user (không mô tả bằng tính năng).</span>
-              </label>
-              <label style="display: flex; align-items: start; gap: 8px; font-size: 12.5px; cursor: pointer;">
-                <input type="checkbox" class="checklist-item" onchange="updateChecklistProgress()" style="width: auto; margin-top: 3px;" checked>
-                <span>Mô tả **Persona** đủ cụ thể (vai trò, hoàn cảnh, mục tiêu, kinh nghiệm, điều kiện hành vi).</span>
-              </label>
-              <label style="display: flex; align-items: start; gap: 8px; font-size: 12.5px; cursor: pointer;">
-                <input type="checkbox" class="checklist-item" onchange="updateChecklistProgress()" style="width: auto; margin-top: 3px;" checked>
-                <span>Xác định rõ **Anti-persona** để tránh trộn lẫn dữ liệu cohort.</span>
-              </label>
-              <label style="display: flex; align-items: start; gap: 8px; font-size: 12.5px; cursor: pointer;">
-                <input type="checkbox" class="checklist-item" onchange="updateChecklistProgress()" style="width: auto; margin-top: 3px;" checked>
-                <span>Mô tả động lực cốt lõi (**The Why**) giải thích outcome người dùng muốn đạt được.</span>
-              </label>
-              <label style="display: flex; align-items: start; gap: 8px; font-size: 12.5px; cursor: pointer;">
-                <input type="checkbox" class="checklist-item" onchange="updateChecklistProgress()" style="width: auto; margin-top: 3px;" checked>
-                <span>Liệt kê giải pháp thay thế thực tế (**The Alternative**) đang sử dụng.</span>
-              </label>
-              <label style="display: flex; align-items: start; gap: 8px; font-size: 12.5px; cursor: pointer;">
-                <input type="checkbox" class="checklist-item" onchange="updateChecklistProgress()" style="width: auto; margin-top: 3px;" checked>
-                <span>Suy luận tần suất tự nhiên (**The Frequency**) từ hành vi thật và giải pháp thay thế.</span>
-              </label>
-            </div>
-          </div>
-
-          <div class="card">
-            <h3 style="border-bottom: 2px solid var(--line); padding-bottom: 8px; margin-bottom: 12px; color: var(--navy);">Core Action & Metric</h3>
-            <div style="display: flex; flex-direction: column; gap: 10px;">
-              <label style="display: flex; align-items: start; gap: 8px; font-size: 12.5px; cursor: pointer;">
-                <input type="checkbox" class="checklist-item" onchange="updateChecklistProgress()" style="width: auto; margin-top: 3px;" checked>
-                <span>Xác định rõ **Core Action** thể hiện user thực sự nhận được giá trị (không phải click/login).</span>
-              </label>
-              <label style="display: flex; align-items: start; gap: 8px; font-size: 12.5px; cursor: pointer;">
-                <input type="checkbox" class="checklist-item" onchange="updateChecklistProgress()" style="width: auto; margin-top: 3px;" checked>
-                <span>Định nghĩa **Active User** rõ ràng kèm ngưỡng hành vi và khoảng thời gian (W1/WAU).</span>
-              </label>
-              <label style="display: flex; align-items: start; gap: 8px; font-size: 12.5px; cursor: pointer;">
-                <input type="checkbox" class="checklist-item" onchange="updateChecklistProgress()" style="width: auto; margin-top: 3px;" checked>
-                <span>Lựa chọn **Retention Metric** phù hợp nhịp sử dụng tự nhiên của use case.</span>
-              </label>
-              <label style="display: flex; align-items: start; gap: 8px; font-size: 12.5px; cursor: pointer;">
-                <input type="checkbox" class="checklist-item" onchange="updateChecklistProgress()" style="width: auto; margin-top: 3px;" checked>
-                <span>Giải thích logic vì sao metric đã chọn phù hợp với tần suất tự nhiên của vấn đề.</span>
-              </label>
-            </div>
-          </div>
-
-          <div class="card">
-            <h3 style="border-bottom: 2px solid var(--line); padding-bottom: 8px; margin-bottom: 12px; color: var(--navy);">Onboarding → First Core Action</h3>
-            <div style="display: flex; flex-direction: column; gap: 10px;">
-              <label style="display: flex; align-items: start; gap: 8px; font-size: 12.5px; cursor: pointer;">
-                <input type="checkbox" class="checklist-item" onchange="updateChecklistProgress()" style="width: auto; margin-top: 3px;" checked>
-                <span>Vẽ hành trình hiện tại (**Current-State Journey**) với đầy đủ các mốc.</span>
-              </label>
-              <label style="display: flex; align-items: start; gap: 8px; font-size: 12.5px; cursor: pointer;">
-                <input type="checkbox" class="checklist-item" onchange="updateChecklistProgress()" style="width: auto; margin-top: 3px;" checked>
-                <span>Đánh giá mức độ ma sát (**Friction Audit**) cho từng bước bằng nhãn Keep/Remove/Delay/Simplify.</span>
-              </label>
-              <label style="display: flex; align-items: start; gap: 8px; font-size: 12.5px; cursor: pointer;">
-                <input type="checkbox" class="checklist-item" onchange="updateChecklistProgress()" style="width: auto; margin-top: 3px;" checked>
-                <span>Thiết kế lại hành trình onboarding dẫn tới core action nhanh nhất có thể.</span>
-              </label>
-              <label style="display: flex; align-items: start; gap: 8px; font-size: 12.5px; cursor: pointer;">
-                <input type="checkbox" class="checklist-item" onchange="updateChecklistProgress()" style="width: auto; margin-top: 3px;" checked>
-                <span>Chỉ rõ các thời điểm/khái niệm: Activation, Activation Rate, TTFC, TTV.</span>
-              </label>
-              <label style="display: flex; align-items: start; gap: 8px; font-size: 12.5px; cursor: pointer;">
-                <input type="checkbox" class="checklist-item" onchange="updateChecklistProgress()" style="width: auto; margin-top: 3px;" checked>
-                <span>Bổ sung **Recovery Path** trong onboarding khi gặp lỗi/từ chối quyền truy cập.</span>
-              </label>
-              <label style="display: flex; align-items: start; gap: 8px; font-size: 12.5px; cursor: pointer;">
-                <input type="checkbox" class="checklist-item" onchange="updateChecklistProgress()" style="width: auto; margin-top: 3px;" checked>
-                <span>Có bảng so sánh chỉ số chi tiết **Before/After Comparison**.</span>
-              </label>
-            </div>
-          </div>
-
-          <div class="card">
-            <h3 style="border-bottom: 2px solid var(--line); padding-bottom: 8px; margin-bottom: 12px; color: var(--navy);">Measurement & NSM</h3>
-            <div style="display: flex; flex-direction: column; gap: 10px;">
-              <label style="display: flex; align-items: start; gap: 8px; font-size: 12.5px; cursor: pointer;">
-                <input type="checkbox" class="checklist-item" onchange="updateChecklistProgress()" style="width: auto; margin-top: 3px;" checked>
-                <span>Thiết lập thang đo **Measurement Ladder** đầy đủ các nấc giá trị.</span>
-              </label>
-              <label style="display: flex; align-items: start; gap: 8px; font-size: 12.5px; cursor: pointer;">
-                <input type="checkbox" class="checklist-item" onchange="updateChecklistProgress()" style="width: auto; margin-top: 3px;" checked>
-                <span>Định nghĩa chính xác một **North Star Metric** và tối đa 3 **Input Metrics**.</span>
-              </label>
-              <label style="display: flex; align-items: start; gap: 8px; font-size: 12.5px; cursor: pointer;">
-                <input type="checkbox" class="checklist-item" onchange="updateChecklistProgress()" style="width: auto; margin-top: 3px;" checked>
-                <span>Phân biệt rõ ràng đâu là **leading indicator** và **lagging indicator**.</span>
-              </label>
-              <label style="display: flex; align-items: start; gap: 8px; font-size: 12.5px; cursor: pointer;">
-                <input type="checkbox" class="checklist-item" onchange="updateChecklistProgress()" style="width: auto; margin-top: 3px;" checked>
-                <span>Phân tích một **trade-off** và **guardrail metric** đi kèm để bảo vệ trải nghiệm.</span>
-              </label>
-            </div>
-          </div>
-
-          <div class="card">
-            <h3 style="border-bottom: 2px solid var(--line); padding-bottom: 8px; margin-bottom: 12px; color: var(--navy);">Nature, Nurture & Hook</h3>
-            <div style="display: flex; flex-direction: column; gap: 10px;">
-              <label style="display: flex; align-items: start; gap: 8px; font-size: 12.5px; cursor: pointer;">
-                <input type="checkbox" class="checklist-item" onchange="updateChecklistProgress()" style="width: auto; margin-top: 3px;" checked>
-                <span>Phân biệt rõ ràng nhịp nhu cầu tự nhiên (**Nature**) và các tác động chủ động (**Nurture**).</span>
-              </label>
-              <label style="display: flex; align-items: start; gap: 8px; font-size: 12.5px; cursor: pointer;">
-                <input type="checkbox" class="checklist-item" onchange="updateChecklistProgress()" style="width: auto; margin-top: 3px;" checked>
-                <span>Đảm bảo Nurture không quá dày hoặc quá thưa để tránh spam và duy trì sự hiện diện.</span>
-              </label>
-              <label style="display: flex; align-items: start; gap: 8px; font-size: 12.5px; cursor: pointer;">
-                <input type="checkbox" class="checklist-item" onchange="updateChecklistProgress()" style="width: auto; margin-top: 3px;" checked>
-                <span>Hoàn thành bảng **Hook Review** chi tiết 4 giai đoạn.</span>
-              </label>
-              <label style="display: flex; align-items: start; gap: 8px; font-size: 12.5px; cursor: pointer;">
-                <input type="checkbox" class="checklist-item" onchange="updateChecklistProgress()" style="width: auto; margin-top: 3px;" checked>
-                <span>Xác định rõ các rào cản làm giảm **Ability** (Time, Brain cycles, Money...).</span>
-              </label>
-              <label style="display: flex; align-items: start; gap: 8px; font-size: 12.5px; cursor: pointer;">
-                <input type="checkbox" class="checklist-item" onchange="updateChecklistProgress()" style="width: auto; margin-top: 3px;" checked>
-                <span>Kiểm tra tác động đạo đức đối với người dùng (không ép buộc, gây nghiện khiên cưỡng).</span>
-              </label>
-            </div>
-          </div>
-
-          <div class="card">
-            <h3 style="border-bottom: 2px solid var(--line); padding-bottom: 8px; margin-bottom: 12px; color: var(--navy);">Tracking & Submission</h3>
-            <div style="display: flex; flex-direction: column; gap: 10px;">
-              <label style="display: flex; align-items: start; gap: 8px; font-size: 12.5px; cursor: pointer;">
-                <input type="checkbox" class="checklist-item" onchange="updateChecklistProgress()" style="width: auto; margin-top: 3px;" checked>
-                <span>Có **Bảng định nghĩa metric** đầy đủ công thức, window và segment.</span>
-              </label>
-              <label style="display: flex; align-items: start; gap: 8px; font-size: 12.5px; cursor: pointer;">
-                <input type="checkbox" class="checklist-item" onchange="updateChecklistProgress()" style="width: auto; margin-top: 3px;" checked>
-                <span>Có **Bảng yêu cầu tracking event** chi tiết kèm cách chống trùng ghi nhận.</span>
-              </label>
-              <label style="display: flex; align-items: start; gap: 8px; font-size: 12.5px; cursor: pointer;">
-                <input type="checkbox" class="checklist-item" onchange="updateChecklistProgress()" style="width: auto; margin-top: 3px;" checked>
-                <span>Gắn nhãn các event trực tiếp lên hành trình onboarding tới core action.</span>
-              </label>
-              <label style="display: flex; align-items: start; gap: 8px; font-size: 12.5px; cursor: pointer;">
-                <input type="checkbox" class="checklist-item" onchange="updateChecklistProgress()" style="width: auto; margin-top: 3px;" checked>
-                <span>Có ít nhất **bốn tiêu chí nghiệm thu** cho phần tracking event.</span>
-              </label>
-            </div>
-          </div>
-        </div>
-      </section>
     </main>
   </div>
 
@@ -2199,8 +1986,7 @@
       { id: "09", label: "Nature vs Nurture", group: "DAY 20 · HABIT", phase: "day20" },
       { id: "10", label: "Hook Review", group: "DAY 20 · HABIT", phase: "day20" },
       { id: "11", label: "Tracking Requirement", group: "DAY 20 · TRACKING", phase: "day20" },
-      { id: "12", label: "Demo Path · 8 phút", group: "DAY 20 · TRÌNH BÀY", phase: "day20" },
-      { id: "13", label: "Checklist trước khi nộp", group: "DAY 20 · TRÌNH BÀY", phase: "day20" }
+      { id: "12", label: "Demo Path · 8 phút", group: "DAY 20 · TRÌNH BÀY", phase: "day20" }
     ];
 
     const sidebar = document.getElementById("sidebar");
@@ -2326,6 +2112,8 @@
 
       document.getElementById("valueTaskName").textContent = taskName;
       document.getElementById("valueTaskMeta").textContent = `${subject} · hạn ${due}`;
+      document.getElementById("priorityTaskName").textContent = taskName;
+      document.getElementById("priorityTaskMeta").textContent = `${subject} · hạn ${due}`;
       showPrototypeScreen("proto-value", 100);
 
       window.setTimeout(() => {
@@ -2333,8 +2121,13 @@
       }, 150);
     }
 
-    function logNextStep() {
+    function showPriorityList() {
       emitEvent("priority_list_viewed", { task_count: 3 });
+      showPrototypeScreen("proto-priorities", 100);
+    }
+
+    function backToValue() {
+      showPrototypeScreen("proto-value", 100);
     }
 
     function chooseRecoveryReason(reason) {
@@ -2354,39 +2147,7 @@
       document.getElementById("relatedResult").classList.remove("hidden");
     }
 
-    function selectHookStep(stepIndex) {
-      const hookContainer = document.getElementById("hook-loop");
-      const divs = hookContainer.querySelectorAll(":scope > div");
-      divs.forEach((div, idx) => {
-        div.classList.toggle("active", idx === stepIndex - 1);
-      });
-
-      const detailSteps = document.querySelectorAll(".hook-details-step");
-      detailSteps.forEach((step, idx) => {
-        step.classList.toggle("hidden", idx !== stepIndex - 1);
-      });
-    }
-
-    function updateChecklistProgress() {
-      const items = document.querySelectorAll(".checklist-item");
-      let checkedCount = 0;
-      items.forEach((item) => {
-        if (item.checked) checkedCount++;
-      });
-      const pct = items.length > 0 ? Math.round((checkedCount / items.length) * 100) : 0;
-      const bar = document.getElementById("checklistProgress");
-      if (bar) {
-        bar.style.width = `${pct}%`;
-      }
-      const label = document.getElementById("checklistRatio");
-      if (label) {
-        label.textContent = `Đã hoàn thành: ${pct}% (${checkedCount} / ${items.length} tiêu chí đạt)`;
-      }
-    }
-
     resetPrototype();
-    selectHookStep(1);
-    updateChecklistProgress();
   </script>
 </body>
 </html>
